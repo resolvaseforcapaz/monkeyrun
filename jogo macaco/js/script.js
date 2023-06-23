@@ -1,18 +1,15 @@
 const macaco = document.querySelector('.macaco');
 const arvore = document.querySelector('.arvore');
 const scoreElement = document.createElement("div");
-const gameOverElement = document.createElement("div");
+scoreElement.id = "score";
 let score = 0;
 let distance = 0;
 let gameOver = false;
 
-// Verifica se o dispositivo suporta eventos de toque
-const isTouchDevice = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-
-// Adiciona o evento de toque para dispositivos móveis ou clique para desktop
-const jumpEvent = isTouchDevice ? 'touchstart' : 'click';
-document.addEventListener(jumpEvent, () => {
-  jump();
+document.addEventListener("keydown", (e) => {
+  if ((e.code === "ArrowUp") || (e.code === "Space")) {
+    jump();
+  }
 });
 
 const jump = () => {
@@ -37,8 +34,11 @@ const loop = setInterval(() => {
       macaco.style.width = '200px';
 
       gameOver = true;
-      gameOverElement.textContent = "Fim de jogo! Sua pontuação foi: " + score;
-      document.body.appendChild(gameOverElement);
+      const mensagem = "Fim de jogo! Sua pontuação foi: " + score;
+      alert(mensagem);
+      location.reload(); // Atualiza a página
+
+      clearInterval(loop); // Pára o loop do jogo
     }
 
     distance++;
@@ -53,3 +53,7 @@ const loop = setInterval(() => {
 
 scoreElement.textContent = "Score: " + score;
 document.body.appendChild(scoreElement);
+
+
+
+
