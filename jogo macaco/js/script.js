@@ -6,8 +6,12 @@ let score = 0;
 let distance = 0;
 let gameOver = false;
 
+document.addEventListener('click', () => {
+    jump();
+  });
+  
 document.addEventListener("keydown", (e) => {
-  if ((e.code === "ArrowUp") || (e.code === "Space")) {
+  if ((e.code === "ArrowUp") || (e.code === "Space") || (e.code === "click")) {
     jump();
   }
 });
@@ -53,6 +57,9 @@ const loop = setInterval(() => {
 
 scoreElement.textContent = "Score: " + score;
 document.body.appendChild(scoreElement);
+
+
+
 
 
 
