@@ -1,0 +1,160 @@
+@font-face {
+    font-family: minecraft;
+    src: url(../fonts/Minecraft.ttf)
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 100%;
+    height: 100vh;
+    border-bottom: 15px solid rgb(47, 185, 47);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#76d1f5, #afe0f3);
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nuvem {
+    position: absolute;
+    width: 800px;
+    animation: nuvem-animacao 20s infinite linear;
+}
+
+.macaco {
+    position: absolute;
+    bottom: -15px;
+    width: 150px;
+}
+
+.jump {
+    animation: pulo 520ms ease-out;
+}
+
+.arvore {
+    position: absolute;
+    bottom: -2px;
+    width: 120px;
+    animation: arvore-animacao 2s infinite linear;
+}
+
+@keyframes arvore-animacao {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%
+    }
+}
+
+@keyframes pulo {
+    0% {
+        bottom: -2px;
+    }
+
+    40% {
+        bottom: 170px;
+    }
+
+    50% {
+        bottom: 170px;
+    }
+
+    60% {
+        bottom: 170px;
+    }
+
+    100% {
+        bottom: -2px;
+    }
+
+}
+
+@keyframes nuvem-animacao {
+    from {
+        right: -600px;
+    }
+
+    to {
+        right: 100%
+    }
+}
+
+#score {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-family: "minecraft", Arial, sans-serif;
+    font-size: 30px;
+    color: black;
+  }
+
+  @media (max-width: 600px) {
+    .game-container {
+      margin: 50px auto;
+    }
+  
+    .macaco {
+      left: 2.5%;
+    }
+
+    .jump {
+        animation: pulo 620ms ease-out;
+    }
+  
+    .arvore {
+      right: -15%;
+      animation: arvore-animacao 1.5s infinite linear;
+}
+    
+  
+    #score {
+      top: 5px;
+      left: 5px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .game-container {
+      margin: 20px auto;
+    }
+  
+    .macaco {
+      left: 1%;
+      animation: arvore-animacao 1.5s infinite linear;
+    }
+
+    .jump {
+        animation: pulo 620ms ease-out;
+    }
+  
+    .arvore {
+      right: -20%;
+    }
+  
+    #score {
+      top: 2px;
+      left: 2px;
+      font-size: 12px;
+    }
+  }
