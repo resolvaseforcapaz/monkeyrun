@@ -43,6 +43,7 @@
     position: absolute;
     bottom: -15px;
     width: 150px;
+
 }
 
 .jump {
@@ -110,11 +111,13 @@
 
   @media (max-width: 600px) {
     .game-container {
+      max-width: 400px;
       margin: 50px auto;
     }
   
     .macaco {
       left: 2.5%;
+      max-width: 100px;
     }
 
     .jump {
@@ -124,6 +127,7 @@
     .arvore {
       right: -15%;
       animation: arvore-animacao 1.5s infinite linear;
+      max-width: 100px;o
 }
     
   
